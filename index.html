@@ -2,253 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zenvy by Anandh - Trendy Lifestyle Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      color: #111827;
     }
     header {
-      background: #3399cc;
-      padding: 20px;
+      background: #2563eb;
       color: white;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    main {
-      max-width: 960px;
-      margin: 30px auto;
+    header h1 {
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      background: url('https://i.imgur.com/y6F1O2B.jpeg') no-repeat center center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
       padding: 0 15px;
     }
+    .search-bar {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .search-bar input {
+      width: 60%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
     .product-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
-      justify-content: center;
     }
     .product {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
       text-align: center;
     }
     .product img {
       max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      border-radius: 10px;
     }
-    .product h2 {
-      margin: 0 0 10px;
+    .product h3 {
+      margin: 10px 0;
     }
     .price {
-      font-size: 1.2rem;
       font-weight: bold;
-      color: #3399cc;
-      margin-bottom: 15px;
+      color: #2563eb;
     }
     button {
-      background: #3399cc;
-      border: none;
-      padding: 12px 20px;
+      background: #2563eb;
       color: white;
-      font-size: 1rem;
-      border-radius: 6px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
-    button:hover {
-      background: #287bb5;
-    }
-    #cart {
+    .cart-icon {
       position: fixed;
       right: 20px;
-      top: 80px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      padding: 15px;
-      max-width: 300px;
-      width: 100%;
-      z-index: 1000;
-    }
-    #cart h3 {
-      margin-top: 0;
-    }
-    #cart ul {
-      list-style: none;
-      padding: 0;
-      max-height: 200px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-    }
-    #cart ul li {
-      margin-bottom: 8px;
-    }
-    #cart-total {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    #close-cart {
-      background: #f44336;
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: none;
+      top: 25px;
+      background: #2563eb;
       color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-weight: bold;
       cursor: pointer;
-      float: right;
-      margin-top: -30px;
-      margin-right: -15px;
     }
     footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 30px;
       text-align: center;
-      padding: 20px;
-      background: #222;
-      color: #ccc;
-      margin-top: 50px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #93c5fd;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
     }
   </style>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
-  <header>Zenvy by Anandh</header>
+  <header>
+    <h1>Zenvy by Anandh</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="policies.html">Policies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="cart-icon" id="cart-count">🛒 0</div>
+  </header>
 
-  <main>
+  <section class="hero">
+    <h2>Style. Simplicity. Zenvy.</h2>
+    <p>Discover our trendy and handpicked products made for your lifestyle.</p>
+  </section>
+
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search products...">
+    </div>
     <div class="product-list" id="product-list"></div>
-  </main>
-
-  <div id="cart" style="display:none;">
-    <button id="close-cart">X</button>
-    <h3>Your Cart</h3>
-    <ul id="cart-items"></ul>
-    <div id="cart-total"></div>
-    <button id="checkout-btn">Checkout</button>
   </div>
 
-  <footer style="text-align: center; padding: 20px; background: #222; color: #ccc; margin-top: 50px;">
-    © 2025 Zenvy by Anandh. All rights reserved. |
-    <a href="policies.html" style="color: #00bfff; text-decoration: none;">Policies</a>
+  <footer>
+    <p>&copy; 2025 Zenvy by Anandh. All rights reserved.</p>
+    <p>
+      <a href="policies.html">Privacy Policy</a> |
+      <a href="policies.html">Refund Policy</a> |
+      <a href="policies.html">Terms & Conditions</a>
+    </p>
   </footer>
 
+  <div class="whatsapp" onclick="window.open('https://wa.me/91XXXXXXXXXX', '_blank')">💬</div>
+
   <script>
-    // Product data
     const products = [
       {
         id: 1,
         name: "Reusable Metal Straws Kit",
-        price: 49900, // price in paise
-        description: "Stylish, durable, and eco-friendly metal straws with cleaning brush.",
+        price: 499,
         image: "https://i.imgur.com/FWXTbVx.jpg"
       },
       {
         id: 2,
         name: "Bamboo Toothbrush Set",
-        price: 39900,
-        description: "Natural bamboo toothbrushes with soft bristles for gentle care.",
+        price: 399,
         image: "https://i.imgur.com/8O6z9OY.jpg"
       }
     ];
 
-    const productListEl = document.getElementById('product-list');
-    const cartEl = document.getElementById('cart');
-    const cartItemsEl = document.getElementById('cart-items');
-    const cartTotalEl = document.getElementById('cart-total');
-    const checkoutBtn = document.getElementById('checkout-btn');
-    const closeCartBtn = document.getElementById('close-cart');
-
+    const productList = document.getElementById('product-list');
+    const search = document.getElementById('search');
+    const cartCount = document.getElementById('cart-count');
     let cart = [];
 
-    function renderProducts() {
-      productListEl.innerHTML = '';
-      products.forEach(product => {
-        const prodEl = document.createElement('div');
-        prodEl.className = 'product';
-        prodEl.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" />
-          <h2>${product.name}</h2>
-          <p>${product.description}</p>
-          <div class="price">₹${(product.price/100).toFixed(2)}</div>
-          <button onclick="addToCart(${product.id})">Add to Cart</button>
+    function renderProducts(filter = '') {
+      productList.innerHTML = '';
+      products.filter(p => p.name.toLowerCase().includes(filter.toLowerCase())).forEach(p => {
+        const el = document.createElement('div');
+        el.className = 'product';
+        el.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p class="price">₹${p.price}</p>
+          <button onclick="addToCart(${p.id})">Add to Cart</button>
         `;
-        productListEl.appendChild(prodEl);
+        productList.appendChild(el);
       });
     }
 
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      const cartItem = cart.find(i => i.id === productId);
-
-      if(cartItem) {
-        cartItem.qty++;
-      } else {
-        cart.push({ ...product, qty: 1 });
-      }
-      showCart();
+    function addToCart(id) {
+      const item = cart.find(i => i.id === id);
+      if (item) item.qty++;
+      else cart.push({ id, qty: 1 });
+      cartCount.innerText = `🛒 ${cart.reduce((sum, i) => sum + i.qty, 0)}`;
     }
 
-    function showCart() {
-      cartEl.style.display = 'block';
-      renderCartItems();
-    }
-
-    function renderCartItems() {
-      cartItemsEl.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price * item.qty;
-        const li = document.createElement('li');
-        li.textContent = `${item.name} x ${item.qty} - ₹${((item.price * item.qty)/100).toFixed(2)}`;
-        cartItemsEl.appendChild(li);
-      });
-      cartTotalEl.textContent = `Total: ₹${(total/100).toFixed(2)}`;
-    }
-
-    closeCartBtn.onclick = () => {
-      cartEl.style.display = 'none';
-    };
-
-    checkoutBtn.onclick = () => {
-      if(cart.length === 0) {
-        alert('Your cart is empty.');
-        return;
-      }
-
-      // Calculate total amount
-      const totalAmount = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
-
-      const options = {
-        key: "rzp_test_ea5njkm2XyKjIa", // Your Razorpay Test Key ID (updated)
-        amount: totalAmount,
-        currency: "INR",
-        name: "Zenvy by Anandh",
-        description: "Purchase from Zenvy",
-        handler: function (response) {
-          alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-          cart = [];
-          cartEl.style.display = 'none';
-          renderCartItems();
-        },
-        prefill: {
-          name: "",
-          email: "",
-          contact: ""
-        },
-        theme: {
-          color: "#3399cc"
-        }
-      };
-      const rzp = new Razorpay(options);
-      rzp.open();
-    };
-
+    search.addEventListener('input', e => renderProducts(e.target.value));
     renderProducts();
   </script>
 </body>
